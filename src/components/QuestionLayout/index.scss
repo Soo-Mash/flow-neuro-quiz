@@ -1,6 +1,5 @@
 .question-layout {
   padding-top: 3rem;
-
   .context-section {
     .question-number-text {
       font-size: 18px;
@@ -27,6 +26,11 @@
       margin-top: 40px;
       background: #d9d9d9;
     }
+  }
+
+  hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .radio-group-section {
