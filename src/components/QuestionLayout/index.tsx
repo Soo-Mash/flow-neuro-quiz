@@ -10,15 +10,19 @@ import './index.scss';
 export interface QuestionLayoutProps {
   itemInfo: QuestionDataItem;
   questionNumber: number;
+  currentValue: number | null;
+  handleRadioChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleItemClicked: (newValue: number) => void;
 }
 
-const QuestionLayout = ({ itemInfo, questionNumber }: QuestionLayoutProps) => {
+const QuestionLayout = ({
+  itemInfo,
+  questionNumber,
+  currentValue,
+  handleRadioChange,
+  handleItemClicked,
+}: QuestionLayoutProps) => {
   const navigate = useNavigate();
-  const [selectedValue, setSelectedValue] = useState<number | null>(null);
-
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(parseInt((event.target as HTMLInputElement).value, 10));
-  };
 
   return (
     <>
@@ -35,6 +39,9 @@ const QuestionLayout = ({ itemInfo, questionNumber }: QuestionLayoutProps) => {
                     minWidth: '0',
                     minHeight: '0',
                     color: '#232323',
+                  }}
+                  onClick={() => {
+                    navigate(`/quiz/question/${questionNumber - 1}`);
                   }}
                 >
                   <ArrowBack />
@@ -61,10 +68,9 @@ const QuestionLayout = ({ itemInfo, questionNumber }: QuestionLayoutProps) => {
       <div className="radio-group-section">
         <QuestionRadioGroup
           itemInfo={itemInfo}
-          questionNumber={questionNumber}
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
+          selectedValue={currentValue}
           handleRadioChange={handleRadioChange}
+          handleItemClicked={handleItemClicked}
           error
         />
       </div>
