@@ -35,10 +35,14 @@ Main technologies in use are
 - Structured SASS format adhered to.
 
 
-# Upcoming improvements
+# Improvements
 Framer motion was used to animate all navigations, with a forward swipe for forward navigation, and the opposite for backwards. With it, moving forward in the quiz caused the expected right to left swipe animation, however moving backwards caused the same animation instead of the expected left to right swipe animation - this was visually jarring & would likely be confusing to a user.
+
 It was therefore decided to remove the animation swipes from the question answering portion of the app, but keep the PageAnimated component functional elsewhere in the app to demonstrate its ability to smooth visual navigation. 
+
 The nested route structure is likely what made the forward/backward rendering slightly more difficult with Framer motion, but some research shows that there are some existing wrapper functions provided by framer motion that may help when this is attempted again in future.
+
+Checkout the `feature/animation-save` branch for the attempt of the above, paying particular attention to the jarring nature of the backward quiz navigation's animation.
 
 
 # Example pages
