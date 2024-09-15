@@ -11,7 +11,7 @@ import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import '@fontsource/open-sans';
 
-import { QuestionDataItem } from '../../types/dataTypes';
+import { QuestionDataItem } from '../../data/dataAndTypes';
 import { SxProps, Theme } from '@mui/material';
 import './index.scss';
 
