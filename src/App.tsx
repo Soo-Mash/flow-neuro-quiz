@@ -2,7 +2,7 @@ import './App.scss';
 import '@fontsource/open-sans';
 import { useState, useEffect } from 'react';
 
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import QuizRouter from './modules/Quiz/router';
 import Welcome from './modules/Welcome/Welcome';

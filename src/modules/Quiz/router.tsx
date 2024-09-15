@@ -1,17 +1,8 @@
-import {
-  Route,
-  Routes,
-  Navigate,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
-import { FC } from 'react';
-import QuestionLayout from '../../components/QuestionLayout';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Quiz from './Quiz';
 import Results from '../Results/Results';
 import { FormValues } from '../../data/dataAndTypes';
 import PageAnimated from '../../utils/PageAnimated';
-import { AnimatePresence } from 'framer-motion';
 interface QuizRouterProps {
   formValues: FormValues;
   setFormValues: React.Dispatch<React.SetStateAction<FormValues>>;
