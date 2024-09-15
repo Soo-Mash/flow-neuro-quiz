@@ -1,2 +1,87 @@
 .results-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+
+  img {
+    width: 100%;
+    min-height: 397px;
+    top: 0;
+    max-height: 397px;
+  }
+
+  .top-section-container {
+    position: relative;
+    .top-section-text {
+      color: #ffffff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-weight: 400;
+
+      .score-title-text {
+        font-size: 32px;
+        line-height: 43.58px;
+        margin-top: 100px;
+        margin-bottom: 0;
+      }
+      .score-total-text {
+        font-size: 66px;
+        line-height: 89.88px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        .score-maximum-text {
+          color: #ffffff4d;
+        }
+      }
+
+      .score-sub-text {
+        font-size: 16px;
+        line-height: 21.79px;
+      }
+    }
+  }
+
+  .bottom-text-section {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    .explanation-title-text {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 27.24px;
+      margin-top: 25px;
+    }
+    .explanation-description-text {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 27.24px;
+    }
+    .explanation-disclaimer-text {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21.79px;
+      color: #808080;
+    }
+  }
+
+  .footer-btn-section {
+    padding-bottom: 34px; // Fixed distance from the bottom
+    text-align: center;
+    .close-button {
+      height: 46px;
+      border-radius: 80px;
+      width: 100%;
+      max-width: 400px;
+      background-color: #106549;
+      font-family: Open sans;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 21.79px;
+    }
+  }
 }

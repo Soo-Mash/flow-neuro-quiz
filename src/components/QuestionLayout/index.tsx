@@ -28,13 +28,13 @@ const QuestionLayout = ({
     <>
       <div className="question-layout">
         <div className="context-section">
-          <Grid container spacing={1}>
+          <Grid container spacing={1} className="quiz-progress-section">
             <Grid size={3}>
               {questionNumber > 1 && (
                 <Button
                   sx={{
-                    pl: 0,
-                    ml: 0,
+                    p: 0,
+                    m: 0,
                     alignContent: 'start',
                     minWidth: '0',
                     minHeight: '0',
