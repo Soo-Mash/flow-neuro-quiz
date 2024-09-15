@@ -6,3 +6,17 @@ export type QuestionDataItem = {
 };
 
 export type QuizData = QuestionDataItem[];
+
+export type FormValues = (number | null)[];
+
+export const initialFormValues: FormValues = [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+];
