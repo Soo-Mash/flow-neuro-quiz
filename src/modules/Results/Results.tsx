@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
 import ShapeDown from '../../assets/ShapeDown.png';
 import { FormValues } from '../../data/dataAndTypes';
+import clsx from 'clsx';
 import './index.scss';
 
 interface ResultsProps {
@@ -15,6 +16,7 @@ const Results = ({ formValues }: ResultsProps) => {
 
   const [total, setTotal] = useState<number>(0);
   const [animatedTotal, setAnimatedTotal] = useState<number>(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const areAllQuestionsAnswered = (): boolean => {
     return formValues.every((value) => value !== null);
@@ -87,10 +89,14 @@ const Results = ({ formValues }: ResultsProps) => {
   }, [formValues]);
 
   return (
-    <div className="results-page">
+    <div className={clsx('results-page', { 'loaded ': imageLoaded })}>
       <div>
         <div className="top-section-container">
-          <img src={ShapeDown} className="rounded-bottom-jpg" />
+          <img
+            src={ShapeDown}
+            className="rounded-bottom-jpg"
+            onLoad={() => setImageLoaded(true)}
+          />
           <>
             <Container
               className="top-section-text"

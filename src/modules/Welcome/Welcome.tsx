@@ -31,7 +31,7 @@ const Welcome = ({ setFormValues }: WelcomeProps) => {
       <div className="img-container">
         <img
           src={FlowLogo}
-          className={clsx('welcome-logo', { loaded: imageLoaded })}
+          className={clsx('welcome-logo', { 'loaded ': imageLoaded })}
           onLoad={() => setImageLoaded(true)}
         />
       </div>
