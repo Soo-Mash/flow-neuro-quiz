@@ -11,27 +11,41 @@ import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import '@fontsource/open-sans';
 
-import { QuestionDataItem } from '../../types/dataTypes';
+import { QuestionDataItem } from '../../data/dataAndTypes';
 import { SxProps, Theme } from '@mui/material';
 import './index.scss';
 
 const radioLabelStyle: SxProps<Theme> | undefined = {
-  fontFamily: 'Open Sans',
+  fontFamily: 'Open sans',
   fontWeight: 400,
 };
 
 interface CustomRadioProps {
   number: number;
   checked: boolean;
+  handleItemClicked: (newValue: number) => void;
 }
 
-const CustomRadio = ({ number, checked }: CustomRadioProps) => {
+const CustomRadio = ({
+  number,
+  checked,
+  handleItemClicked,
+}: CustomRadioProps) => {
+  // Trigger the onClick event when Enter key is pressed
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter') handleItemClicked(number);
+  };
   return (
     <div
       className={clsx('custom-radio', {
         'unchecked ': !checked,
         'checked ': checked,
       })}
+      aria-label={`Radio option ${number}`}
+      tabIndex={0}
+      role="radio" // aria attribute to show element type to screenreaders
+      aria-checked={checked} // aria attribute to show checked state to screenreaders
+      onKeyDown={handleKeyDown}
     >
       <div className="radio-number">{number}</div>
     </div>
@@ -65,24 +79,41 @@ const QuestionRadioGroup = ({
         >
           <FormControlLabel
             value={0}
-            control={<CustomRadio number={0} checked={selectedValue === 0} />}
+            control={
+              <CustomRadio
+                number={0}
+                checked={selectedValue === 0}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={
               <Typography sx={radioLabelStyle}>
                 {itemInfo.responses[0]}
               </Typography>
             }
             onClick={() => handleItemClicked(0)}
-            className="radio-label"
           />
           <FormControlLabel
             value={1}
-            control={<CustomRadio number={1} checked={selectedValue === 1} />}
+            control={
+              <CustomRadio
+                number={1}
+                checked={selectedValue === 1}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={''}
             onClick={() => handleItemClicked(1)}
           />
           <FormControlLabel
             value={2}
-            control={<CustomRadio number={2} checked={selectedValue === 2} />}
+            control={
+              <CustomRadio
+                number={2}
+                checked={selectedValue === 2}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={
               <Typography sx={radioLabelStyle}>
                 {itemInfo.responses[1]}
@@ -93,13 +124,25 @@ const QuestionRadioGroup = ({
           />
           <FormControlLabel
             value={3}
-            control={<CustomRadio number={3} checked={selectedValue === 3} />}
+            control={
+              <CustomRadio
+                number={3}
+                checked={selectedValue === 3}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={''}
             onClick={() => handleItemClicked(3)}
           />
           <FormControlLabel
             value={4}
-            control={<CustomRadio number={4} checked={selectedValue === 4} />}
+            control={
+              <CustomRadio
+                number={4}
+                checked={selectedValue === 4}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={
               <Typography sx={radioLabelStyle}>
                 {itemInfo.responses[2]}
@@ -110,14 +153,25 @@ const QuestionRadioGroup = ({
           />
           <FormControlLabel
             value={5}
-            control={<CustomRadio number={5} checked={selectedValue === 5} />}
+            control={
+              <CustomRadio
+                number={5}
+                checked={selectedValue === 5}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={''}
             onClick={() => handleItemClicked(5)}
           />
           <FormControlLabel
             value={6}
-            // control={<CustomRadio number={6} checked={selectedValue === 6} />}
-            control={<CustomRadio number={6} checked={selectedValue === 6} />}
+            control={
+              <CustomRadio
+                number={6}
+                checked={selectedValue === 6}
+                handleItemClicked={handleItemClicked}
+              />
+            }
             label={
               <Typography sx={radioLabelStyle}>
                 {itemInfo.responses[3]}
@@ -127,7 +181,6 @@ const QuestionRadioGroup = ({
             sx={radioLabelStyle}
           />
         </RadioGroup>
-        {/* <FormHelperText>{helperText}</FormHelperText> */}
       </FormControl>
     </>
   );

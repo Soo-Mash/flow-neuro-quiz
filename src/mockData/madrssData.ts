@@ -1,4 +1,4 @@
-import { QuizData } from '../types/dataTypes';
+import { QuizData } from '../data/dataAndTypes';
 
 export const quizData: QuizData = [
   {

@@ -1,5 +1,10 @@
 .question-layout {
-  padding-top: 3rem;
+  .quiz-progress-section {
+    position: sticky;
+    top: 0;
+    padding: 18px 0px 0px 0px;
+    background: #ffffff;
+  }
   .context-section {
     .question-number-text {
       font-size: 18px;
