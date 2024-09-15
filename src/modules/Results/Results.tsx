@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
 import ShapeDown from '../../assets/ShapeDown.png';
-import { FormValues } from '../../types/dataTypes';
+import { FormValues } from '../../data/dataAndTypes';
 import './index.scss';
 
 interface ResultsProps {

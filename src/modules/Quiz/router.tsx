@@ -3,7 +3,7 @@ import { FC } from 'react';
 import QuestionLayout from '../../components/QuestionLayout';
 import Quiz from './Quiz';
 import Results from '../Results/Results';
-import { FormValues } from '../../types/dataTypes';
+import { FormValues } from '../../data/dataAndTypes';
 interface QuizRouterProps {
   formValues: FormValues;
   setFormValues: React.Dispatch<React.SetStateAction<FormValues>>;

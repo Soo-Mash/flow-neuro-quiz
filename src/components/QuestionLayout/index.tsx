@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { QuestionDataItem } from '../../types/dataTypes';
+import { QuestionDataItem } from '../../data/dataAndTypes';
 import QuestionRadioGroup from '../QuestionRadioGroup';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';

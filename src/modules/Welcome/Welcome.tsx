@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { Container } from '@mui/material';
 import FlowLogo from '../../assets/FlowLogo.webp';
 import Button from '@mui/material/Button';
-import { initialFormValues } from '../../types/dataTypes';
-import { FormValues } from '../../types/dataTypes';
+import { initialFormValues } from '../../data/dataAndTypes';
+import { FormValues } from '../../data/dataAndTypes';
 import clsx from 'clsx';
 
 import './index.scss';

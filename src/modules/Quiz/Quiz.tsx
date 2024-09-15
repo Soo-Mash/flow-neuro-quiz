@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
-import { FormValues } from '../../types/dataTypes';
+import { FormValues } from '../../data/dataAndTypes';
 
 interface QuizProps {
   formValues: FormValues;

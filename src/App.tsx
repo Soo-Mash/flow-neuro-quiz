@@ -6,8 +6,8 @@ import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import QuizRouter from './modules/Quiz/router';
 import Welcome from './modules/Welcome/Welcome';
-import { FormValues } from './types/dataTypes';
-import { initialFormValues } from './types/dataTypes';
+import { FormValues } from './data/dataAndTypes';
+import { initialFormValues } from './data/dataAndTypes';
 
 function App() {
   const localValues =
