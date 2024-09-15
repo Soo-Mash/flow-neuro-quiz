@@ -27,11 +27,13 @@ Main technologies in use are
 - Visual smoothing of loading elements that are slow to render such as images, to prevent screen jumps of other content
 
 # Noteworthy features: contributing developers as primary focus
-- Re-usable components adhered to in modern React standards, very little duplicated code.
-- Proper routing implemented using React-Router-Dom
-- Structured SASS css structure adhered to.
 - All features were contributed to a GIT repository to mimic a basic GitFlow strategy (feature branch -> feature PR -> develop branch -> release PR -> production branch (main))
 - All releases to 'production' were tagged with semantic versioning
+- Re-usable components adhered to in modern React standards, very little duplicated code.
+- Prettier + eslint formatting implemented for readibilty & consistent code structure.
+- Proper routing implemented using React-Router-Dom
+- Structured SASS format adhered to.
+
 
 # Upcoming improvements
 Framer motion was used to animate all navigations, with a forward swipe for forward navigation, and the opposite for backwards. With it, moving forward in the quiz caused the expected right to left swipe animation, however moving backwards caused the same animation instead of the expected left to right swipe animation - this was visually jarring & would likely be confusing to a user.
