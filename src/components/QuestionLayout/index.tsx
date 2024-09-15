@@ -5,6 +5,7 @@ import QuestionRadioGroup from '../QuestionRadioGroup';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
 import ArrowBack from '@mui/icons-material/ArrowBack';
+import PageAnimated from '../../utils/PageAnimated';
 import './index.scss';
 
 export interface QuestionLayoutProps {
@@ -25,7 +26,7 @@ const QuestionLayout = ({
   const navigate = useNavigate();
 
   return (
-    <>
+    <PageAnimated>
       <div className="question-layout">
         <div className="context-section">
           <Grid container spacing={1} className="quiz-progress-section">
@@ -74,7 +75,7 @@ const QuestionLayout = ({
           error
         />
       </div>
-    </>
+    </PageAnimated>
   );
 };
 
