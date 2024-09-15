@@ -1,13 +1,5 @@
-import {
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  RadioProps,
-  FormHelperText,
-} from '@mui/material';
+import { FormControl, FormControlLabel, RadioGroup } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import '@fontsource/open-sans';
 
@@ -31,7 +23,7 @@ const CustomRadio = ({
   checked,
   handleItemClicked,
 }: CustomRadioProps) => {
-  // Trigger the onClick event when Enter key is pressed
+  // Trigger the onClick event when enter key is pressed
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') handleItemClicked(number);
   };

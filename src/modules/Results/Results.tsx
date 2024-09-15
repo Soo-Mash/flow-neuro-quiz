@@ -1,6 +1,3 @@
-import QuestionLayout from '../../components/QuestionLayout';
-import { quizData } from '../../mockData/madrssData';
-import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
@@ -8,7 +5,6 @@ import { Container } from '@mui/material';
 import ShapeDown from '../../assets/ShapeDown.png';
 import { FormValues } from '../../data/dataAndTypes';
 import './index.scss';
-import PageAnimated from '../../utils/PageAnimated';
 
 interface ResultsProps {
   formValues: FormValues;
@@ -18,17 +14,7 @@ const Results = ({ formValues }: ResultsProps) => {
   const navigate = useNavigate();
 
   const [total, setTotal] = useState<number>(0);
-  const [animatedTotal, setAnimatedTotal] = useState<number>(0); // Stores the animated counter
-  const [btnIsDisabled, setBtnIsDisabled] = useState(true);
-
-  const animationTime = 5000;
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setBtnIsDisabled(false);
-    }, animationTime - 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [animatedTotal, setAnimatedTotal] = useState<number>(0);
 
   const areAllQuestionsAnswered = (): boolean => {
     return formValues.every((value) => value !== null);
@@ -77,7 +63,7 @@ const Results = ({ formValues }: ResultsProps) => {
       setTotal(totalValue);
 
       let startValue = 0;
-      const duration = animationTime;
+      const duration = 5000;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -101,63 +87,61 @@ const Results = ({ formValues }: ResultsProps) => {
   }, [formValues]);
 
   return (
-    <PageAnimated>
-      <div className="results-page">
-        <div>
-          <div className="top-section-container">
-            <img src={ShapeDown} className="rounded-bottom-jpg" />
-            <>
-              <Container
-                className="top-section-text"
-                maxWidth="md"
-                sx={{ paddingLeft: '10px', paddingRight: '10px' }}
-              >
-                <p className="score-title-text">Your score</p>
-                <p className="score-total-text">
-                  {animatedTotal}
-                  <span className="score-maximum-text">/54</span>
-                </p>
-                <p className="score-sub-text">No Symptoms</p>
-              </Container>
-            </>
-          </div>
-          <Container
-            className="bottom-text-section"
-            maxWidth="md"
-            sx={{ paddingLeft: '10px', paddingRight: '10px' }}
-          >
-            <p className="explanation-title-text">What does this mean?</p>
-            <p className="explanation-description-text">
-              {diagnoseSeverity() !== 'Invalid score' && (
-                <>
-                  This score indicates that you have <br />
-                  {diagnoseSeverity()} symptoms
-                </>
-              )}
-            </p>
-            <p className="explanation-disclaimer-text">
-              Remember that this questionnaire is not a complete diagnosis, but
-              rather a guideline.
-            </p>
-          </Container>
+    <div className="results-page">
+      <div>
+        <div className="top-section-container">
+          <img src={ShapeDown} className="rounded-bottom-jpg" />
+          <>
+            <Container
+              className="top-section-text"
+              maxWidth="md"
+              sx={{ paddingLeft: '10px', paddingRight: '10px' }}
+            >
+              <p className="score-title-text">Your score</p>
+              <p className="score-total-text">
+                {animatedTotal}
+                <span className="score-maximum-text">/54</span>
+              </p>
+              <p className="score-sub-text">No Symptoms</p>
+            </Container>
+          </>
         </div>
-
         <Container
-          className="footer-btn-section"
+          className="bottom-text-section"
           maxWidth="md"
           sx={{ paddingLeft: '10px', paddingRight: '10px' }}
         >
-          <Button
-            variant="contained"
-            className="close-button"
-            onClick={handleClose}
-            disabled={btnIsDisabled}
-          >
-            Close
-          </Button>
+          <p className="explanation-title-text">What does this mean?</p>
+          <p className="explanation-description-text">
+            {diagnoseSeverity() !== 'Invalid score' && (
+              <>
+                This score indicates that you have <br />
+                {diagnoseSeverity()} symptoms
+              </>
+            )}
+          </p>
+          <p className="explanation-disclaimer-text">
+            Remember that this questionnaire is not a complete diagnosis, but
+            rather a guideline.
+          </p>
         </Container>
       </div>
-    </PageAnimated>
+
+      <Container
+        className="footer-btn-section"
+        maxWidth="md"
+        sx={{ paddingLeft: '10px', paddingRight: '10px' }}
+      >
+        <Button
+          variant="contained"
+          className="close-button"
+          onClick={handleClose}
+          disabled={total !== animatedTotal}
+        >
+          Close
+        </Button>
+      </Container>
+    </div>
   );
 };
 
