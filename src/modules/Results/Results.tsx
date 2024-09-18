@@ -50,6 +50,8 @@ const Results = ({ formValues }: ResultsProps) => {
     }
   };
 
+  const severity = diagnoseSeverity();
+
   const handleClose = () => {
     navigate('/welcome');
   };
@@ -108,7 +110,7 @@ const Results = ({ formValues }: ResultsProps) => {
                 {animatedTotal}
                 <span className="score-maximum-text">/54</span>
               </p>
-              <p className="score-sub-text">No Symptoms</p>
+              <p className="score-sub-text">{severity}</p>
             </Container>
           </>
         </div>
@@ -122,7 +124,7 @@ const Results = ({ formValues }: ResultsProps) => {
             {diagnoseSeverity() !== 'Invalid score' && (
               <>
                 This score indicates that you have <br />
-                {diagnoseSeverity()} symptoms
+                {severity} symptoms
               </>
             )}
           </p>
